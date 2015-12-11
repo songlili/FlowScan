@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_black_1000"
+    android:orientation="vertical"
+    android:paddingTop="16sp"
+    android:paddingBottom="10sp"
+    android:paddingStart="5sp"
+    android:paddingEnd="5sp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/traffic_title"
+        android:textColor="@color/md_grey_500"
+        android:textSize="32sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/up_down"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/traffic_style_2g_3g"
+            android:textColor="@color/md_white_1000"
+            android:textSize="22sp"/>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_300"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:text="@string/hour_now"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:text="@string/today"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <TableRow>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@color/md_grey_900"
+                android:text="@string/send"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_2g_send_hour"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_2g_send_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <TableRow>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:text="@string/receive"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_2g_receive_hour"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_2g_receive_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:text="@string/now"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"/>
+
+        <TextView
+            android:gravity="center"
+            android:text="@string/send"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tv_2g_send_all"
+            android:gravity="center"
+            android:text="0MB"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tv_2g_receive_all"
+            android:gravity="center"
+            android:text="@string/receive"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:text="0MB"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/wifi"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/traffic_style_wifi"
+            android:textColor="@color/md_white_1000"
+            android:textSize="22sp"/>
+    </LinearLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_300"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:text="@string/hour_now"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:text="@string/today"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <TableRow>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@color/md_grey_900"
+                android:text="@string/send"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_wifi_send_hour"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_wifi_send_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <TableRow>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:text="@string/receive"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_wifi_receive_hour"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_wifi_receive_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/md_grey_900"
+                android:gravity="center"
+                android:textColor="@color/md_grey_500"
+                android:textSize="20sp"/>
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:text="@string/now"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"/>
+
+        <TextView
+            android:gravity="center"
+            android:text="@string/send"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:text="0MB"
+            android:id="@+id/tv_wifi_send_all"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:text="@string/receive"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:text="0MB"
+            android:id="@+id/tv_wifi_recive_all"
+            android:textColor="@color/md_grey_500"
+            android:textSize="20sp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</LinearLayout>

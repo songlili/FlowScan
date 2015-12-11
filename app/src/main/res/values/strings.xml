@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">FlowScan</string>
+    <string name="app_name">手机流量监控</string>
+    <string name="traffic_title">流量监控</string>
+    <string name="traffic_style_2g_3g">2G/3G流量</string>
+    <string name="traffic_style_wifi">wifi流量</string>
+    <string name="hour_now">当前小时</string>
+    <string name="today">今日</string>
+    <string name="send">发送:</string>
+    <string name="receive">接收:</string>
+    <string name="now">当前</string>
+    <string name="choose_time">选择时间：</string>
 </resources>
