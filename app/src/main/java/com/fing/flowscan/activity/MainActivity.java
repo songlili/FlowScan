@@ -11,12 +11,12 @@ import com.fing.flowscan.R;
  */
 public class MainActivity extends BaseActivity{
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     protected int getContentView() {
-        return R.layout.dialog_time;
+        return R.layout.activity_traffic_list;
     }
 }

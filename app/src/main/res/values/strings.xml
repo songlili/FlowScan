@@ -8,5 +8,12 @@
     <string name="send">发送:</string>
     <string name="receive">接收:</string>
     <string name="now">当前</string>
-    <string name="choose_time">选择时间：</string>
+    <string name="choose_time">选择时间:</string>
+    <string name="search">查询</string>
+    <string name="hours">时间</string>
+    <string name="receive_2g_3g">2G/3G接收</string>
+    <string name="send_2g_3g">2G/3G发送</string>
+    <string name="receive_wifi">Wifi接收</string>
+    <string name="send_wifi">Wifi发送</string>
+    <string name="zero_byte">0B</string>
 </resources>

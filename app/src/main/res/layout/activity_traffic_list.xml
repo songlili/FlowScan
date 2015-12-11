@@ -3,32 +3,71 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/md_white_1000"
     android:orientation="vertical"
     android:paddingTop="16sp"
     android:paddingBottom="10sp"
     android:paddingStart="5sp"
     android:paddingEnd="5sp">
-    <LinearLayout
+    <include layout="@layout/time_choose"/>
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/choose_time"
-            android:textSize="18sp"
-            android:textColor="@color/md_grey_500"/>
-        <DatePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/datePicker"/>
-
-        <TimePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/timePicker"/>
-
-    </LinearLayout>
-
-
+        android:layout_height="match_parent">
+        <TableRow>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:text="@string/hours"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:background="@color/md_grey_800"
+                android:textColor="@color/md_grey_100"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:text="@string/receive_2g_3g"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_weight="2"
+                android:background="@color/md_grey_800"
+                android:textColor="@color/md_grey_100"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:text="@string/send_2g_3g"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_weight="2"
+                android:background="@color/md_grey_800"
+                android:textColor="@color/md_grey_100"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:text="@string/receive_wifi"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_weight="2"
+                android:background="@color/md_grey_800"
+                android:textColor="@color/md_grey_100"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:text="@string/send_wifi"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_weight="2"
+                android:background="@color/md_grey_800"
+                android:textColor="@color/md_grey_100"/>
+        </TableRow>
+        <TableRow>
+            <ListView
+                android:id="@+id/ls_time_traffic"
+                android:layout_weight="1"
+                android:layout_width="0sp"
+                tools:listitem="@layout/list_items_traffic"
+                android:layout_height="match_parent"/>
+        </TableRow>
+    </TableLayout>
 </LinearLayout>
