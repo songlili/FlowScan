@@ -2,7 +2,6 @@ package com.fing.flowscan.activity;
 
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 
 import com.fing.flowscan.R;
 
@@ -13,10 +12,11 @@ public class MainActivity extends BaseActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     protected int getContentView() {
-        return R.layout.activity_traffic_list;
+        return R.layout.fragment_traffic_list;
     }
 }

@@ -75,7 +75,7 @@
                 android:textSize="20sp"/>
         </TableRow>
 
-        <TextView
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
         <TableRow>
@@ -111,7 +111,7 @@
                 android:textSize="20sp"/>
         </TableRow>
 
-        <TextView
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
         <TableRow>
@@ -258,7 +258,7 @@
                 android:textSize="20sp"/>
         </TableRow>
 
-        <TextView
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
         <TableRow>
@@ -294,7 +294,7 @@
                 android:textSize="20sp"/>
         </TableRow>
 
-        <TextView
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
         <TableRow>
