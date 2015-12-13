@@ -1,10 +1,7 @@
 package com.fing.flowscan.utils;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 
-import com.fing.flowscan.model.TrafficInfo;
+import android.view.View;
 
 /**
  * Created by fing on 2015/12/12.

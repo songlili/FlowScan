@@ -1,6 +1,5 @@
 package com.fing.flowscan.activity;
 
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -11,6 +10,7 @@ import android.view.View;
 import com.fing.flowscan.R;
 import com.fing.flowscan.fragement.DayTrafficFragment;
 import com.fing.flowscan.fragement.TrafficFragment;
+import com.fing.flowscan.service.TrafficInsertService;
 
 /**
  * Created by fing on 2015/12/11.

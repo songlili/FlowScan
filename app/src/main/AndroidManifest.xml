@@ -23,7 +23,10 @@
             </intent-filter>
         </service>
         <service android:name=".service.TrafficQueryService"/>
+<<<<<<< HEAD
         <service android:name=".service.DayTrafficService"/>
+=======
+>>>>>>> origin/master
     </application>
 
 </manifest>
