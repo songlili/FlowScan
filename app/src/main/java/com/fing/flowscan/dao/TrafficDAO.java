@@ -17,6 +17,7 @@ import java.util.Locale;
 
 /**
  * Created by fing on 2015/12/11.
+ * Time 下午 09:14
  */
 public class TrafficDAO {
     public static final String DB_NAME = "traffic.db";
@@ -45,7 +46,6 @@ public class TrafficDAO {
         try {
             db.beginTransaction();
             ContentValues values = new ContentValues();
-            values.put("id", info.getId());
             values.put("mobileReceive", info.getMobileReceive());
             values.put("mobileSend", info.getMobileSend());
             values.put("mRx", info.getmRx());
@@ -105,40 +105,13 @@ public class TrafficDAO {
         }
     }
 
-    public TrafficInfo query(int id){
-        TrafficInfo info = new TrafficInfo();
-        try {
-            db.beginTransaction();
-           Cursor cursor = db.query(TABLE_NAME,null,"id=?",new String[]{""+id},null,null,null,null);
-            if (cursor.moveToNext()){
-                info.setId(cursor.getInt(cursor.getColumnIndex("id")));
-                info.setMobileReceive(cursor.getLong(cursor.getColumnIndex("mobileReceive")));
-                info.setMobileSend(cursor.getLong(cursor.getColumnIndex("mobileSend")));
-                info.setmRx(cursor.getLong(cursor.getColumnIndex("mRx")));
-                info.setmSx(cursor.getLong(cursor.getColumnIndex("mSx")));
-                info.setWifiReceive(cursor.getLong(cursor.getColumnIndex("wifiReceive")));
-                info.setWifiSend(cursor.getLong(cursor.getColumnIndex("wifiSend")));
-                info.setwRx(cursor.getLong(cursor.getColumnIndex("wRx")));
-                info.setwSx(cursor.getLong(cursor.getColumnIndex("wSx")));
-                info.setInterval(cursor.getInt(cursor.getColumnIndex("interval")));
-                info.setState(cursor.getInt(cursor.getColumnIndex("state")));
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CANADA);
-                info.setTime(format.parse(cursor.getString(cursor.getColumnIndex("time"))));
-            }
-            db.setTransactionSuccessful();
-        } catch (Exception e) {
-            LogUtil.e("delete", e.getMessage());
-        } finally {
-            db.endTransaction();
-        }
-        return info;
-    }
-    public List<TrafficInfo> queryList(){
+    public List<TrafficInfo> queryList(String section, String[] sectionArgs, String groupBy, String having, String
+            orderBy, String limit) {
         List<TrafficInfo> infoList = new ArrayList<>();
         try {
             db.beginTransaction();
-            Cursor cursor = db.query(TABLE_NAME,null,null,null,null,null,null,null);
-            while (cursor.moveToNext()){
+            Cursor cursor = db.query(TABLE_NAME, null, section, sectionArgs, groupBy, having, orderBy, limit);
+            while (cursor.moveToNext()) {
                 TrafficInfo info = new TrafficInfo();
                 info.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 info.setMobileReceive(cursor.getLong(cursor.getColumnIndex("mobileReceive")));
@@ -162,5 +135,28 @@ public class TrafficDAO {
             db.endTransaction();
         }
         return infoList;
+    }
+
+    /**
+     * 提供按照时间格式来生成Info的方法
+     *
+     * @param timeFormat
+     * @return
+     */
+    public TrafficInfo queryTrafficInfo(String timeFormat) {
+        List<TrafficInfo> list = queryList("time like '" + timeFormat + "%'", null, null, null, null, null);
+        long mobileSend = 0, mobileReceive = 0, wifiSend = 0, wifiReceive = 0;
+        for (TrafficInfo info : list) {
+            mobileSend += info.getmSx();
+            mobileReceive += info.getmRx();
+            wifiSend += info.getwSx();
+            wifiReceive += info.getwRx();
+        }
+        TrafficInfo info = new TrafficInfo();
+        info.setMobileSend(mobileSend);
+        info.setMobileReceive(mobileReceive);
+        info.setWifiSend(wifiSend);
+        info.setWifiReceive(wifiReceive);
+        return info;
     }
 }

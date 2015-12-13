@@ -172,9 +172,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
-            android:id="@+id/tv_2g_send_all"
+            android:id="@+id/tv_2g_send_now"
             android:gravity="center"
-            android:text="0MB"
+            android:text="@string/zero_byte"
             android:textColor="@color/md_grey_500"
             android:textSize="20sp"
             android:layout_marginEnd="15dp"
@@ -182,7 +182,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
-            android:id="@+id/tv_2g_receive_all"
             android:gravity="center"
             android:text="@string/receive"
             android:textColor="@color/md_grey_500"
@@ -192,8 +191,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
+            android:id="@+id/tv_2g_receive_now"
             android:gravity="center"
-            android:text="0MB"
+            android:text="@string/zero_byte"
             android:textColor="@color/md_grey_500"
             android:textSize="20sp"
             android:layout_marginEnd="15dp"
@@ -355,8 +355,8 @@
             android:layout_height="match_parent"/>
         <TextView
             android:gravity="center"
-            android:text="0MB"
-            android:id="@+id/tv_wifi_send_all"
+            android:text="@string/zero_byte"
+            android:id="@+id/tv_wifi_send_now"
             android:textColor="@color/md_grey_500"
             android:textSize="20sp"
             android:layout_marginEnd="15dp"
@@ -374,8 +374,8 @@
             android:layout_height="match_parent"/>
         <TextView
             android:gravity="center"
-            android:text="0MB"
-            android:id="@+id/tv_wifi_recive_all"
+            android:text="@string/zero_byte"
+            android:id="@+id/tv_wifi_recive_now"
             android:textColor="@color/md_grey_500"
             android:textSize="20sp"
             android:layout_marginEnd="15dp"

@@ -16,4 +16,5 @@
     <string name="receive_wifi">Wifi接收</string>
     <string name="send_wifi">Wifi发送</string>
     <string name="zero_byte">0B</string>
+    <string name="traffic_now">当前网速</string>
 </resources>
