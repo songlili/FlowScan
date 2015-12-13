@@ -5,16 +5,21 @@
               android:orientation="vertical">
 
     <FrameLayout
+        android:id="@+id/main_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
         <fragment
-            android:name="com.fing.flowscan.fragement.TrafficFragment"
+            android:id="@+id/main_fragment"
+            android:name="com.fing.flowscan.fragement.DayTrafficFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </FrameLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_black_1000"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp">
@@ -24,7 +29,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:background="@color/md_grey_600"
+            android:orientation="vertical"
+            android:onClick="btClick">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -38,7 +45,7 @@
                 android:gravity="center"
                 android:paddingBottom="5dp"
                 android:text="@string/traffic_title"
-                android:textColor="@color/md_white_1000"
+                android:textColor="@color/md_blue_grey_900"
                 android:textSize="15sp"/>
         </LinearLayout>
 
@@ -47,10 +54,13 @@
             android:layout_height="match_parent"
             android:background="@color/md_black_1000"/>
         <LinearLayout
+            android:id="@+id/btn_day_traffic"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:background="@color/md_grey_600"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:onClick="btClick">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

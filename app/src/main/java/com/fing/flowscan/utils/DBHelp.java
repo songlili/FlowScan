@@ -22,13 +22,14 @@ public class DBHelp extends SQLiteOpenHelper {
             "time varchar(20)," +
             "state integer" +
             ");";
+
     public DBHelp(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(CREATE_DB);
     }
 
     @Override
@@ -36,8 +37,4 @@ public class DBHelp extends SQLiteOpenHelper {
 
     }
 
-    @Override
-    public SQLiteDatabase getWritableDatabase() {
-        return super.getWritableDatabase();
-    }
 }

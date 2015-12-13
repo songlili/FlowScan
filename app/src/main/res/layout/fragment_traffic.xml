@@ -94,6 +94,7 @@
                 android:id="@+id/tv_2g_send_hour"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:text="@string/zero_byte"
                 android:layout_weight="1"
                 android:background="@color/md_grey_900"
                 android:gravity="center"
@@ -103,6 +104,7 @@
             <TextView
                 android:id="@+id/tv_2g_send_today"
                 android:layout_width="wrap_content"
+                android:text="@string/zero_byte"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/md_grey_900"
@@ -131,6 +133,7 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="@string/zero_byte"
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
@@ -141,6 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="@string/zero_byte"
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
@@ -159,45 +163,45 @@
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"/>
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"/>
 
         <TextView
             android:gravity="center"
             android:text="@string/send"
             android:textColor="@color/md_grey_500"
             android:textSize="20sp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
-            android:id="@+id/tv_2g_send_all"
+            android:id="@+id/tv_2g_send_now"
             android:gravity="center"
-            android:text="0MB"
-            android:textColor="@color/md_grey_500"
+            android:text="@string/zero_byte"
+            android:textColor="@color/md_yellow_800"
             android:textSize="20sp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
-            android:id="@+id/tv_2g_receive_all"
             android:gravity="center"
             android:text="@string/receive"
             android:textColor="@color/md_grey_500"
             android:textSize="20sp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
+            android:id="@+id/tv_2g_receive_now"
             android:gravity="center"
-            android:text="0MB"
-            android:textColor="@color/md_grey_500"
+            android:text="@string/zero_byte"
+            android:textColor="@color/md_yellow_800"
             android:textSize="20sp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
     </LinearLayout>
@@ -277,6 +281,7 @@
                 android:id="@+id/tv_wifi_send_hour"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:text="@string/zero_byte"
                 android:layout_weight="1"
                 android:background="@color/md_grey_900"
                 android:gravity="center"
@@ -289,6 +294,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/md_grey_900"
+                android:text="@string/zero_byte"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
                 android:textSize="20sp"/>
@@ -312,6 +318,7 @@
             <TextView
                 android:id="@+id/tv_wifi_receive_hour"
                 android:layout_width="0sp"
+                android:text="@string/zero_byte"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/md_grey_900"
@@ -321,6 +328,7 @@
 
             <TextView
                 android:id="@+id/tv_wifi_receive_today"
+                android:text="@string/zero_byte"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -341,26 +349,26 @@
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"/>
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"/>
 
         <TextView
             android:gravity="center"
             android:text="@string/send"
             android:textColor="@color/md_grey_500"
             android:textSize="20sp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
             android:gravity="center"
-            android:text="0MB"
-            android:id="@+id/tv_wifi_send_all"
-            android:textColor="@color/md_grey_500"
+            android:text="@string/zero_byte"
+            android:id="@+id/tv_wifi_send_now"
+            android:textColor="@color/md_yellow_800"
             android:textSize="20sp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
@@ -368,18 +376,18 @@
             android:text="@string/receive"
             android:textColor="@color/md_grey_500"
             android:textSize="20sp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
             android:gravity="center"
-            android:text="0MB"
-            android:id="@+id/tv_wifi_recive_all"
-            android:textColor="@color/md_grey_500"
+            android:text="@string/zero_byte"
+            android:id="@+id/tv_wifi_recive_now"
+            android:textColor="@color/md_yellow_800"
             android:textSize="20sp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
     </LinearLayout>

@@ -1,11 +1,13 @@
 package com.fing.flowscan.model;
 
 import android.database.Cursor;
+import android.net.TrafficStats;
 
 import java.util.Date;
 
 /**
  * Created by fing on 2015/12/11.
+ * Time 下午 09:13
  */
 public class TrafficInfo {
     private int id;// 主键，自增id
@@ -17,7 +19,7 @@ public class TrafficInfo {
     private long wifiSend;// wifi发送流量
     private long wRx; // wifi瞬间接收流量
     private long wSx; // wifi瞬间发送流量
-    private int interval; // 时间间隔，毫秒计算
+    private int interval = 10000; // 时间间隔，毫秒计算,默认10秒
     private Date time; // 保存时间，格式yyyy-MM-dd hh:mm:ss
     private int state;
 
@@ -115,6 +117,109 @@ public class TrafficInfo {
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public static class TrafficInfoBuilder {
+        private TrafficInfo info;
+
+        public TrafficInfoBuilder() {
+            info = new TrafficInfo();
+            long oldSend = TrafficStats.getMobileTxBytes();
+            long oldReceive = TrafficStats.getMobileRxBytes();
+            long oldTotalSend = TrafficStats.getTotalTxBytes();
+            long oldTotalReceive = TrafficStats.getTotalRxBytes();
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            long newSend = TrafficStats.getMobileTxBytes();
+            long newReceive = TrafficStats.getMobileRxBytes();
+            long newTotalSend = TrafficStats.getTotalTxBytes();
+            long newTotalReceive = TrafficStats.getTotalRxBytes();
+            long mSx = newSend - oldSend;
+            long mRx = newReceive - oldReceive;
+            long wSx = (newTotalSend - oldTotalSend - mSx) * 2;
+            long wRx = (newTotalReceive - oldTotalReceive - mRx) * 2;
+            mRx *= 2;
+            mSx *= 2;
+
+            long wifiSend = newTotalSend - newSend;
+            long wifiReceive = newTotalReceive - newReceive;
+
+            info.setMobileSend(newSend);
+            info.setMobileReceive(newReceive);
+            info.setmSx(mSx);
+            info.setmRx(mRx);
+            info.setWifiSend(wifiSend);
+            info.setWifiReceive(wifiReceive);
+            info.setwSx(wSx);
+            info.setwRx(wRx);
+            info.setTime(new Date());
+        }
+
+        public TrafficInfo builder() {
+            return info;
+        }
+//        public TrafficInfoBuilder setId(int id) {
+//            info.id = id;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setMobileReceive(long mobileReceive) {
+//            info.mobileReceive = mobileReceive;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setMobileSend(long mobileSend) {
+//            info.mobileSend = mobileSend;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setmRx(long mRx) {
+//            info.mRx = mRx;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setmSx(long mSx) {
+//            info.mSx = mSx;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setWifiReceive(long wifiReceive) {
+//            info.wifiReceive = wifiReceive;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setWifiSend(long wifiSend) {
+//            info.wifiSend = wifiSend;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setwRx(long wRx) {
+//            info.wRx = wRx;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setwSx(long wSx) {
+//            info.wSx = wSx;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setInterval(int interval) {
+//            info.interval = interval;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setTime(Date time) {
+//            info.time = time;
+//            return this;
+//        }
+//
+//        public TrafficInfoBuilder setState(int state) {
+//            info.state = state;
+//            return this;
+//        }
     }
 
 }

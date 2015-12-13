@@ -12,7 +12,10 @@ import com.fing.flowscan.utils.LogUtil;
  */
 public class BaseActivity extends AppCompatActivity {
     protected static String TAG;
-
+    @SuppressWarnings("unchecked")
+    public <T extends View> T $(int resId){
+        return (T) findViewById(resId);
+    };
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
