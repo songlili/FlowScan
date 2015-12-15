@@ -121,7 +121,6 @@ public class DayTrafficFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogUtil.e("-----------", "unbind");
         getActivity().unbindService(conn);
     }
 

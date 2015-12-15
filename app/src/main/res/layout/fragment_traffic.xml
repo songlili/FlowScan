@@ -179,11 +179,7 @@
             android:id="@+id/tv_2g_send_now"
             android:gravity="center"
             android:text="@string/zero_byte"
-<<<<<<< HEAD
             android:textColor="@color/md_yellow_800"
-=======
-            android:textColor="@color/md_grey_500"
->>>>>>> origin/master
             android:textSize="20sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
@@ -202,11 +198,7 @@
             android:id="@+id/tv_2g_receive_now"
             android:gravity="center"
             android:text="@string/zero_byte"
-<<<<<<< HEAD
             android:textColor="@color/md_yellow_800"
-=======
-            android:textColor="@color/md_grey_500"
->>>>>>> origin/master
             android:textSize="20sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
@@ -373,11 +365,7 @@
             android:gravity="center"
             android:text="@string/zero_byte"
             android:id="@+id/tv_wifi_send_now"
-<<<<<<< HEAD
             android:textColor="@color/md_yellow_800"
-=======
-            android:textColor="@color/md_grey_500"
->>>>>>> origin/master
             android:textSize="20sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
@@ -396,11 +384,7 @@
             android:gravity="center"
             android:text="@string/zero_byte"
             android:id="@+id/tv_wifi_recive_now"
-<<<<<<< HEAD
             android:textColor="@color/md_yellow_800"
-=======
-            android:textColor="@color/md_grey_500"
->>>>>>> origin/master
             android:textSize="20sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"

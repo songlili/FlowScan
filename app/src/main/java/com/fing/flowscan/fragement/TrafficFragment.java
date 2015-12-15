@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,6 @@ import com.fing.flowscan.model.TrafficInfo;
 import com.fing.flowscan.service.TrafficQueryService;
 import com.fing.flowscan.utils.FUtil;
 
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -76,7 +76,7 @@ public class TrafficFragment extends Fragment {
                 binder.getService().setCallback(new BinderCallback(){
                     @Override
                     public void call() {
-                        Map<String,TrafficInfo> map = new HashMap<>();
+                        Map<String,TrafficInfo> map = new ArrayMap<>();
                        TrafficInfo nowInfo = binder.getNowInfo();
                        map.put("now",nowInfo);
                         TrafficInfo hourInfo = binder.getHourInfo();
@@ -100,7 +100,6 @@ public class TrafficFragment extends Fragment {
         return view;
     }
     public void initView(View view){
-        FUtil.$(view,0);
         tv2GSendHour = FUtil.$(view,R.id.tv_2g_send_hour);
         tv2GReceiveHour = FUtil.$(view,R.id.tv_2g_receive_hour);
         tv2GSendToday = FUtil.$(view,R.id.tv_2g_send_today);
