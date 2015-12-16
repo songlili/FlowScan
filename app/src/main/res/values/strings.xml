@@ -17,4 +17,7 @@
     <string name="send_wifi">Wifi发送</string>
     <string name="zero_byte">0B</string>
     <string name="traffic_now">当前网速</string>
+    <string name="statistic_form">报表统计</string>
+    <string name="today_traffic">今日流量</string>
+    <string name="graphical_text">图形统计</string>
 </resources>

@@ -55,7 +55,7 @@ public class TrafficDAO {
             values.put("wRx", info.getwRx());
             values.put("wSx", info.getwSx());
             values.put("interval", info.getInterval());
-            DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CANADA);
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CANADA);
             values.put("time", format.format(info.getTime()));
             values.put("state", info.getState());
             db.insert(TABLE_NAME, null, values);
@@ -93,7 +93,7 @@ public class TrafficDAO {
             values.put("wRx", info.getwRx());
             values.put("wSx", info.getwSx());
             values.put("interval", info.getInterval());
-            DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CANADA);
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CANADA);
             values.put("time", format.format(info.getTime()));
             values.put("state", info.getState());
             db.update(TABLE_NAME, values, "id=" + info.getId(), null);
@@ -104,7 +104,13 @@ public class TrafficDAO {
             db.endTransaction();
         }
     }
-
+    public TrafficInfo query(String section, String[] sectionArgs, String groupBy, String having, String
+            orderBy, String limit) {
+        List<TrafficInfo> list = queryList(section,sectionArgs,groupBy,having,orderBy,limit);
+        if(list.size()>0)
+            return list.get(0);
+        return null;
+    }
     public List<TrafficInfo> queryList(String section, String[] sectionArgs, String groupBy, String having, String
             orderBy, String limit) {
         List<TrafficInfo> infoList = new ArrayList<>();
@@ -124,7 +130,7 @@ public class TrafficDAO {
                 info.setwSx(cursor.getLong(cursor.getColumnIndex("wSx")));
                 info.setInterval(cursor.getInt(cursor.getColumnIndex("interval")));
                 info.setState(cursor.getInt(cursor.getColumnIndex("state")));
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CANADA);
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CANADA);
                 info.setTime(format.parse(cursor.getString(cursor.getColumnIndex("time"))));
                 infoList.add(info);
             }
@@ -133,6 +139,7 @@ public class TrafficDAO {
             LogUtil.e("delete", e.getMessage());
         } finally {
             db.endTransaction();
+
         }
         return infoList;
     }
@@ -144,19 +151,27 @@ public class TrafficDAO {
      * @return
      */
     public TrafficInfo queryTrafficInfo(String timeFormat) {
-        List<TrafficInfo> list = queryList("time like '" + timeFormat + "%'", null, null, null, null, null);
-        long mobileSend = 0, mobileReceive = 0, wifiSend = 0, wifiReceive = 0;
-        for (TrafficInfo info : list) {
-            mobileSend += info.getmSx();
-            mobileReceive += info.getmRx();
-            wifiSend += info.getwSx();
-            wifiReceive += info.getwRx();
+        Cursor cursor = db.query(TABLE_NAME, null,"time like '" + timeFormat + "%'", null, null, null, null, null);
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            TrafficInfo info_begin = new TrafficInfo();
+            info_begin.setMobileReceive(cursor.getLong(cursor.getColumnIndex("mobileReceive")));
+            info_begin.setMobileSend(cursor.getLong(cursor.getColumnIndex("mobileSend")));
+            info_begin.setWifiReceive(cursor.getLong(cursor.getColumnIndex("wifiReceive")));
+            info_begin.setWifiSend(cursor.getLong(cursor.getColumnIndex("wifiSend")));
+            cursor.moveToLast();
+            TrafficInfo info_end = new TrafficInfo();
+            info_end.setMobileReceive(cursor.getLong(cursor.getColumnIndex("mobileReceive")));
+            info_end.setMobileSend(cursor.getLong(cursor.getColumnIndex("mobileSend")));
+            info_end.setWifiReceive(cursor.getLong(cursor.getColumnIndex("wifiReceive")));
+            info_end.setWifiSend(cursor.getLong(cursor.getColumnIndex("wifiSend")));
+            TrafficInfo info = new TrafficInfo();
+            info.setMobileSend(info_end.getMobileSend() - info_begin.getMobileSend());
+            info.setMobileReceive(info_end.getMobileReceive() - info_begin.getMobileReceive());
+            info.setWifiSend(info_end.getWifiSend() - info_begin.getWifiSend());
+            info.setWifiReceive(info_end.getWifiReceive() - info_begin.getWifiReceive());
+            return info;
         }
-        TrafficInfo info = new TrafficInfo();
-        info.setMobileSend(mobileSend);
-        info.setMobileReceive(mobileReceive);
-        info.setWifiSend(wifiSend);
-        info.setWifiReceive(wifiReceive);
-        return info;
+        return null;
     }
 }

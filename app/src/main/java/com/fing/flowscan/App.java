@@ -19,8 +19,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         context = this.getApplicationContext();
-        LogUtil.LOG_PRINT = true;
-        TrafficDAO.getInstance(this);
+        LogUtil.LOG_PRINT = false;
     }
     public static Context getContext(){
         return context;

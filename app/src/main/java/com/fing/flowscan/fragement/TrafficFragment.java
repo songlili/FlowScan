@@ -38,8 +38,14 @@ public class TrafficFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_traffic,container,false);
+        View view = inflater.inflate(R.layout.fragment_traffic,container,false);
         initView(view);
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         final Handler handler = new Handler(new Handler.Callback(){
             @Override
             public boolean handleMessage(Message msg) {
@@ -77,8 +83,8 @@ public class TrafficFragment extends Fragment {
                     @Override
                     public void call() {
                         Map<String,TrafficInfo> map = new ArrayMap<>();
-                       TrafficInfo nowInfo = binder.getNowInfo();
-                       map.put("now",nowInfo);
+                        TrafficInfo nowInfo = binder.getNowInfo();
+                        map.put("now",nowInfo);
                         TrafficInfo hourInfo = binder.getHourInfo();
                         map.put("hour",hourInfo);
                         TrafficInfo dayInfo = binder.getDayInfo();
@@ -96,9 +102,9 @@ public class TrafficFragment extends Fragment {
             }
         };
         Intent intent = new Intent(getActivity(),TrafficQueryService.class);
-       getActivity().bindService(intent,conn, Context.BIND_AUTO_CREATE);
-        return view;
+        getActivity().bindService(intent,conn, Context.BIND_AUTO_CREATE);
     }
+
     public void initView(View view){
         tv2GSendHour = FUtil.$(view,R.id.tv_2g_send_hour);
         tv2GReceiveHour = FUtil.$(view,R.id.tv_2g_receive_hour);

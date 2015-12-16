@@ -3,6 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_black_1000"
     android:orientation="vertical">
     <include layout="@layout/time_choose"/>
+    <LinearLayout
+        android:id="@+id/graphical_view"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/md_grey_600"
+        android:layout_height="match_parent">
+    </LinearLayout>
 </LinearLayout>

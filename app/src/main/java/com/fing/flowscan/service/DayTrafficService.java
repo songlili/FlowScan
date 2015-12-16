@@ -35,35 +35,66 @@ public class DayTrafficService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         binder = new DayTrafficBinder();
+        LogUtil.e("----------","onCreate");
+
+        return binder;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
         final TrafficDAO dao = TrafficDAO.getInstance(this);
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
+
                 if (day != null) {
-                    List<Map<String, String>> list = new ArrayList<>();
+                    List<Map<String, Long>> list = new ArrayList<>();
                     for (int i = 0; i <= 22; i += 2) {
-                        Map<String, String> map = new HashMap<>();
-                        map.put("time", i + "时");
-                        String str = i < 10 ? " 0" + i : " " + i;
-                        TrafficInfo info = dao.queryTrafficInfo(day + str);
-                        map.put("mobileSend", FUtil.formatByte(info.getMobileSend()));
-                        map.put("mobileReceive", FUtil.formatByte(info.getMobileReceive()));
-                        map.put("wifiSend", FUtil.formatByte(info.getWifiSend()));
-                        map.put("wifiReceive", FUtil.formatByte(info.getWifiReceive()));
-                        list.add(map);
+                        Map<String, Long> map = new HashMap<>();
+                        map.put("time",(long)i);
+
+                        String str1 = i < 10 ? " 0" + i : " " + i;
+                        String str2 = (i+1) < 10 ? " 0"+(i+1):" "+(i+1);
+                        TrafficInfo info1 = dao.query("time like '" + day+str1 + "%'", null, null, null, null, "1");
+                        TrafficInfo info2 = dao.query("time like '" + day+str2 + "%'", null, null, null, "id desc", "1");
+                        if(info1 == null && info2 == null){
+                            map.put("mobileSend", 0L);
+                            map.put("mobileReceive", 0L);
+                            map.put("wifiSend", 0L);
+                            map.put("wifiReceive", 0L);
+                            LogUtil.e("time-----------","runing -----------------1"+"time like '" + day+str1 + "%'"+"=========="+"time like '" + day+str2 + "%'");
+                            list.add(map);
+                        }else if(info1 == null){
+                            LogUtil.e("time-----------","runing -----------------2");
+                            info1 = dao.query("time like '" + day+str2 + "%'", null, null, null, null, "1");
+                            map.put("mobileSend", info2.getMobileSend()-info1.getMobileSend());
+                            map.put("mobileReceive", info2.getMobileReceive()-info1.getMobileReceive());
+                            map.put("wifiSend", info2.getWifiSend()-info1.getWifiSend());
+                            map.put("wifiReceive", info2.getWifiReceive()-info1.getWifiReceive());
+                            list.add(map);
+                        }else{
+                            LogUtil.e("time-----------","runing -----------------3");
+                            info2 = dao.query("time like '" + day+str1 + "%'", null, null, null, "id desc", "1");
+                            map.put("mobileSend", info2.getMobileSend()-info1.getMobileSend());
+                            map.put("mobileReceive", info2.getMobileReceive()-info1.getMobileReceive());
+                            map.put("wifiSend", info2.getWifiSend()-info1.getWifiSend());
+                            map.put("wifiReceive", info2.getWifiReceive()-info1.getWifiReceive());
+                            list.add(map);
+                        }
                     }
                     binder.setList(list);
                     callback.call();
                 }
             }
         }, 1000, 1000);
-        return binder;
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        LogUtil.e("--------","onDestroy");
         timer.cancel();
     }
 
@@ -71,18 +102,19 @@ public class DayTrafficService extends Service {
         this.day = day;
     }
 
+
     public class DayTrafficBinder extends Binder {
-        List<Map<String, String>> list;
+        List<Map<String, Long>> list;
 
         public DayTrafficService getService() {
             return DayTrafficService.this;
         }
 
-        public void setList(List<Map<String, String>> list) {
+        public void setList(List<Map<String, Long>> list) {
             this.list = list;
         }
 
-        public List<Map<String, String>> getList() {
+        public List<Map<String, Long>> getList() {
             return list;
         }
     }

@@ -43,18 +43,15 @@ public class TrafficQueryService extends Service {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                List<TrafficInfo> nowInfoList = dao.queryList(null, null, null, null, "id desc", "1");
-                if(nowInfoList.size()!=0) {
-                    TrafficInfo nowInfo = nowInfoList.get(0);
-                    binder.setNowInfo(nowInfo);
-                }
-                DateFormat hourFormat = new SimpleDateFormat("yyyy-MM-dd hh", Locale.CANADA);
+                TrafficInfo nowInfo = dao.query(null, null, null, null, "id desc", "1");
+                binder.setNowInfo(nowInfo);
+                DateFormat hourFormat = new SimpleDateFormat("yyyy-MM-dd HH", Locale.CANADA);
                 TrafficInfo hourInfo = dao.queryTrafficInfo(hourFormat.format(new Date()));
                 binder.setHourInfo(hourInfo);
                 DateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
                 TrafficInfo dayInfo = dao.queryTrafficInfo(dayFormat.format(new Date()));
                 binder.setDayInfo(dayInfo);
-                if(callback != null)
+                if (callback != null)
                     callback.call();
             }
         }, 1000, 1000);

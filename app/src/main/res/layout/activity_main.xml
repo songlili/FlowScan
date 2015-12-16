@@ -12,7 +12,7 @@
 
         <fragment
             android:id="@+id/main_fragment"
-            android:name="com.fing.flowscan.fragement.DayTrafficFragment"
+            android:name="com.fing.flowscan.fragement.TrafficFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </FrameLayout>
@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/md_grey_600"
+            android:background="@drawable/btn_click"
             android:orientation="vertical"
             android:onClick="btClick">
 
@@ -57,7 +57,7 @@
             android:id="@+id/btn_day_traffic"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:background="@color/md_grey_600"
+            android:background="@drawable/btn_click"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:onClick="btClick">
@@ -69,15 +69,37 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/traffic_title"
+                android:text="@string/statistic_form"
                 android:gravity="center"
                 android:textSize="15sp"
-                android:textColor="@color/md_white_1000"
+                android:textColor="@color/md_black_1000"
                 android:paddingBottom="5dp"/>
         </LinearLayout>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/md_black_1000"/>
+        <LinearLayout
+            android:id="@+id/btn_traffic_graphical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:onClick="btClick">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/statistic"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/graphical_text"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@color/md_black_1000"
+                android:paddingBottom="5dp"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

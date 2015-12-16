@@ -9,15 +9,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.fing.flowscan.R;
+import com.fing.flowscan.fragement.DayGraphicalFragment;
 import com.fing.flowscan.fragement.DayTrafficFragment;
 import com.fing.flowscan.fragement.TrafficFragment;
+import com.fing.flowscan.utils.LogUtil;
 
 /**
  * Created by fing on 2015/12/11.
  * Time 下午 09:13
  */
 public class MainActivity extends BaseActivity {
-    Fragment trafficFragment, dayTrafficFragment;
+    Fragment trafficFragment, dayTrafficFragment,graphicalFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,12 @@ public class MainActivity extends BaseActivity {
                     dayTrafficFragment = new DayTrafficFragment();
                 }
                 ft.replace(R.id.main_frame_layout, dayTrafficFragment);
+                break;
+            case R.id.btn_traffic_graphical:
+                if(graphicalFragment == null){
+                    graphicalFragment = new DayGraphicalFragment();
+                }
+                ft.replace(R.id.main_frame_layout,graphicalFragment);
                 break;
         }
         ft.commit();
