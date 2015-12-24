@@ -60,8 +60,8 @@
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73297">
-              <caret line="106" column="48" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.47411445">
+              <caret line="101" column="56" selection-start-line="101" selection-start-column="56" selection-end-line="101" selection-end-column="56" />
               <folding>
                 <element signature="e#3790#3814#0" expanded="true" />
               </folding>
@@ -165,6 +165,9 @@
       </map>
     </option>
     <option name="RESET_MODE" value="MIXED" />
+    <push-targets>
+      <push-target-info repo="$PROJECT_DIR$" source="temp" target-remote="origin" target-branch="master" />
+    </push-targets>
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -2368,7 +2371,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450959348381</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="v2015.12.24.2016&#10;">
+      <created>1450959367438</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1450959367438</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2426,7 +2435,8 @@
     <MESSAGE value="第9次修改" />
     <MESSAGE value="第十次修改" />
     <MESSAGE value="v2015.12.24.1858" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2015.12.24.1858" />
+    <MESSAGE value="v2015.12.24.2016&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2015.12.24.2016&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2934,8 +2944,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73297">
-          <caret line="106" column="48" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.47411445">
+          <caret line="101" column="56" selection-start-line="101" selection-start-column="56" selection-end-line="101" selection-end-column="56" />
           <folding>
             <element signature="e#3790#3814#0" expanded="true" />
           </folding>
