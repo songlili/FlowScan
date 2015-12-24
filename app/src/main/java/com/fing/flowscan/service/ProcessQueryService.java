@@ -39,6 +39,7 @@ public class ProcessQueryService extends Service {
     String processStyle = "all";
     ProcessQueryBinder binder;
     BinderCallback callback;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -59,7 +60,7 @@ public class ProcessQueryService extends Service {
                     case "all":
                         List<ProcessInfo> pInfos = new ArrayList<>();
                         for (PackageInfo info : pList) {
-                            if((info.applicationInfo.flags& ApplicationInfo.FLAG_SYSTEM)==0) {
+                            if ((info.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
                                 ProcessInfo pInfo = new ProcessInfo();
                                 pInfo.setSend(TrafficStats.getUidTxBytes(info.applicationInfo.uid));
                                 pInfo.setReceive(TrafficStats.getUidRxBytes(info.applicationInfo.uid));
@@ -68,7 +69,8 @@ public class ProcessQueryService extends Service {
                             }
                         }
                         binder.setProcessInfos(pInfos);
-                        callback.call();
+                        if (callback != null)
+                            callback.call();
                         return;
                     case "hour":
                         format = new SimpleDateFormat("yyyy-MM-dd HH");
@@ -86,8 +88,8 @@ public class ProcessQueryService extends Service {
 
                 List<ProcessInfo> pInfos = new ArrayList<>();
                 for (PackageInfo info : pList) {
-                    if((info.applicationInfo.flags& ApplicationInfo.FLAG_SYSTEM)==0) {
-                        ProcessInfo pInfo =pDao.query(startTime,null,info.packageName);
+                    if ((info.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+                        ProcessInfo pInfo = pDao.query(startTime, null, info.packageName);
                         pInfo.setSend(TrafficStats.getUidTxBytes(info.applicationInfo.uid));
                         pInfo.setReceive(TrafficStats.getUidRxBytes(info.applicationInfo.uid));
                         pInfo.setPackageName(info.packageName);
@@ -95,18 +97,21 @@ public class ProcessQueryService extends Service {
                     }
                 }
                 binder.setProcessInfos(pInfos);
-                callback.call();
+                if (callback != null)
+                    callback.call();
             }
 
         }, 0, 1000);
         return binder;
     }
+
     public void setCallback(BinderCallback callback) {
-      this.callback = callback;
+        this.callback = callback;
     }
 
     public class ProcessQueryBinder extends Binder {
         List<ProcessInfo> pInfos;
+
         public ProcessQueryService getService() {
             return ProcessQueryService.this;
         }
@@ -115,10 +120,11 @@ public class ProcessQueryService extends Service {
             ProcessQueryService.this.processStyle = processStyle;
         }
 
-        public void setProcessInfos(List<ProcessInfo> infos){
+        public void setProcessInfos(List<ProcessInfo> infos) {
             this.pInfos = infos;
         }
-        public  List<ProcessInfo> getProcessInfos(){
+
+        public List<ProcessInfo> getProcessInfos() {
             return this.pInfos;
         }
     }

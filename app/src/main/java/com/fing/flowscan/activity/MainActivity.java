@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopService(insertService);
+      //  stopService(insertService);
     }
 
     public void btClick(View view) {
