@@ -19,7 +19,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         context = this.getApplicationContext();
-        LogUtil.LOG_PRINT = false;
+        LogUtil.LOG_PRINT = true;
     }
     public static Context getContext(){
         return context;

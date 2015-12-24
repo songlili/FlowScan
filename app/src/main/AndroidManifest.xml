@@ -17,11 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <service android:name=".service.TrafficInsertService">
-            <intent-filter>
-                <action android:name="com.fing.service.TrafficInsertService"/>
-            </intent-filter>
-        </service>
+        <service android:name=".service.ProcessQueryService"/>
+        <service android:name=".service.TrafficInsertService"/>
         <service android:name=".service.TrafficQueryService"/>
         <service android:name=".service.DayTrafficService"/>
     </application>

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/md_black_1000"
     android:orientation="vertical"
-    android:paddingTop="16sp"
+    android:paddingTop="14sp"
     android:paddingBottom="10sp"
     android:paddingStart="5sp"
     android:paddingEnd="5sp">
@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/hours"
                 android:gravity="center"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_weight="1"
                 android:background="@color/md_grey_800"
                 android:textColor="@color/md_grey_100"/>
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/receive_2g_3g"
                 android:gravity="center"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_weight="2"
                 android:background="@color/md_grey_800"
                 android:textColor="@color/md_grey_100"/>
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/send_2g_3g"
                 android:gravity="center"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_weight="2"
                 android:background="@color/md_grey_800"
                 android:textColor="@color/md_grey_100"/>
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/receive_wifi"
                 android:gravity="center"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_weight="2"
                 android:background="@color/md_grey_800"
                 android:textColor="@color/md_grey_100"/>
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/send_wifi"
                 android:gravity="center"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_weight="2"
                 android:background="@color/md_grey_800"
                 android:textColor="@color/md_grey_100"/>

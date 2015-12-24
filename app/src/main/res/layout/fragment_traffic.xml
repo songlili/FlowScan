@@ -52,7 +52,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_grey_300"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="0sp"
@@ -62,7 +62,7 @@
                 android:gravity="center"
                 android:text="@string/hour_now"
                 android:textColor="@color/md_grey_500"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="0sp"
@@ -72,7 +72,7 @@
                 android:text="@string/today"
                 android:gravity="center"
                 android:textColor="@color/md_grey_500"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
         </TableRow>
 
         <View
@@ -88,7 +88,7 @@
                 android:background="@color/md_grey_900"
                 android:text="@string/send"
                 android:textColor="@color/md_grey_500"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_2g_send_hour"
@@ -99,7 +99,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_2g_send_today"
@@ -110,7 +110,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
         </TableRow>
 
         <View
@@ -126,7 +126,7 @@
                 android:gravity="center"
                 android:text="@string/receive"
                 android:textColor="@color/md_grey_500"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_2g_receive_hour"
@@ -137,7 +137,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_2g_receive_today"
@@ -148,7 +148,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
         </TableRow>
     </TableLayout>
 
@@ -160,7 +160,7 @@
             android:gravity="center"
             android:text="@string/now"
             android:textColor="@color/md_grey_500"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="5dp"
@@ -170,7 +170,7 @@
             android:gravity="center"
             android:text="@string/send"
             android:textColor="@color/md_grey_500"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
@@ -180,7 +180,7 @@
             android:gravity="center"
             android:text="@string/zero_byte"
             android:textColor="@color/md_yellow_800"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
@@ -189,7 +189,7 @@
             android:gravity="center"
             android:text="@string/receive"
             android:textColor="@color/md_grey_500"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
@@ -199,7 +199,7 @@
             android:gravity="center"
             android:text="@string/zero_byte"
             android:textColor="@color/md_yellow_800"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_grey_300"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="0sp"
@@ -249,7 +249,7 @@
                 android:gravity="center"
                 android:text="@string/hour_now"
                 android:textColor="@color/md_grey_500"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="0sp"
@@ -259,7 +259,7 @@
                 android:text="@string/today"
                 android:gravity="center"
                 android:textColor="@color/md_grey_500"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
         </TableRow>
 
         <View
@@ -275,7 +275,7 @@
                 android:background="@color/md_grey_900"
                 android:text="@string/send"
                 android:textColor="@color/md_grey_500"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_wifi_send_hour"
@@ -286,7 +286,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_wifi_send_today"
@@ -297,7 +297,7 @@
                 android:text="@string/zero_byte"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
         </TableRow>
 
         <View
@@ -313,7 +313,7 @@
                 android:gravity="center"
                 android:text="@string/receive"
                 android:textColor="@color/md_grey_500"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_wifi_receive_hour"
@@ -324,7 +324,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_wifi_receive_today"
@@ -335,7 +335,7 @@
                 android:background="@color/md_grey_900"
                 android:gravity="center"
                 android:textColor="@color/md_yellow_800"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
         </TableRow>
     </TableLayout>
     <LinearLayout
@@ -346,7 +346,7 @@
             android:gravity="center"
             android:text="@string/now"
             android:textColor="@color/md_grey_500"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="5dp"
@@ -356,7 +356,7 @@
             android:gravity="center"
             android:text="@string/send"
             android:textColor="@color/md_grey_500"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
@@ -366,7 +366,7 @@
             android:text="@string/zero_byte"
             android:id="@+id/tv_wifi_send_now"
             android:textColor="@color/md_yellow_800"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
@@ -375,7 +375,7 @@
             android:gravity="center"
             android:text="@string/receive"
             android:textColor="@color/md_grey_500"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
@@ -385,7 +385,7 @@
             android:text="@string/zero_byte"
             android:id="@+id/tv_wifi_recive_now"
             android:textColor="@color/md_yellow_800"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"

@@ -11,7 +11,9 @@ import android.view.View;
 import com.fing.flowscan.R;
 import com.fing.flowscan.fragement.DayGraphicalFragment;
 import com.fing.flowscan.fragement.DayTrafficFragment;
+import com.fing.flowscan.fragement.ProcessFragment;
 import com.fing.flowscan.fragement.TrafficFragment;
+import com.fing.flowscan.service.TrafficInsertService;
 import com.fing.flowscan.utils.LogUtil;
 
 /**
@@ -19,12 +21,13 @@ import com.fing.flowscan.utils.LogUtil;
  * Time 下午 09:13
  */
 public class MainActivity extends BaseActivity {
-    Fragment trafficFragment, dayTrafficFragment,graphicalFragment;
-
+    Fragment trafficFragment, dayTrafficFragment, graphicalFragment,processFragment;
+    Intent insertService;
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        startService(new Intent("com.fing.service.TrafficInsertService"));
         super.onCreate(savedInstanceState);
+        insertService = new Intent(this, TrafficInsertService.class);
+        startService(insertService);
     }
 
     @Override
@@ -35,7 +38,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopService(new Intent("com.fing.service.TrafficInsertService"));
+        stopService(insertService);
     }
 
     public void btClick(View view) {
@@ -55,10 +58,16 @@ public class MainActivity extends BaseActivity {
                 ft.replace(R.id.main_frame_layout, dayTrafficFragment);
                 break;
             case R.id.btn_traffic_graphical:
-                if(graphicalFragment == null){
+                if (graphicalFragment == null) {
                     graphicalFragment = new DayGraphicalFragment();
                 }
-                ft.replace(R.id.main_frame_layout,graphicalFragment);
+                ft.replace(R.id.main_frame_layout, graphicalFragment);
+                break;
+            case R.id.btn_process:
+                if (processFragment == null) {
+                    processFragment = new ProcessFragment();
+                }
+                ft.replace(R.id.main_frame_layout, processFragment);
                 break;
         }
         ft.commit();

@@ -161,65 +161,6 @@ public class TrafficInfo {
         public TrafficInfo builder() {
             return info;
         }
-//        public TrafficInfoBuilder setId(int id) {
-//            info.id = id;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setMobileReceive(long mobileReceive) {
-//            info.mobileReceive = mobileReceive;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setMobileSend(long mobileSend) {
-//            info.mobileSend = mobileSend;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setmRx(long mRx) {
-//            info.mRx = mRx;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setmSx(long mSx) {
-//            info.mSx = mSx;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setWifiReceive(long wifiReceive) {
-//            info.wifiReceive = wifiReceive;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setWifiSend(long wifiSend) {
-//            info.wifiSend = wifiSend;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setwRx(long wRx) {
-//            info.wRx = wRx;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setwSx(long wSx) {
-//            info.wSx = wSx;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setInterval(int interval) {
-//            info.interval = interval;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setTime(Date time) {
-//            info.time = time;
-//            return this;
-//        }
-//
-//        public TrafficInfoBuilder setState(int state) {
-//            info.state = state;
-//            return this;
-//        }
     }
 
 }

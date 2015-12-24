@@ -12,6 +12,7 @@ import com.fing.flowscan.model.TrafficInfo;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -45,11 +46,12 @@ public class TrafficQueryService extends Service {
             public void run() {
                 TrafficInfo nowInfo = dao.query(null, null, null, null, "id desc", "1");
                 binder.setNowInfo(nowInfo);
+                Date date = new Date();
                 DateFormat hourFormat = new SimpleDateFormat("yyyy-MM-dd HH", Locale.CANADA);
-                TrafficInfo hourInfo = dao.queryTrafficInfo(hourFormat.format(new Date()));
+                TrafficInfo hourInfo = dao.queryTrafficInfo(hourFormat.format(date));
                 binder.setHourInfo(hourInfo);
                 DateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
-                TrafficInfo dayInfo = dao.queryTrafficInfo(dayFormat.format(new Date()));
+                TrafficInfo dayInfo = dao.queryTrafficInfo(dayFormat.format(date));
                 binder.setDayInfo(dayInfo);
                 if (callback != null)
                     callback.call();

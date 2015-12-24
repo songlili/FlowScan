@@ -78,32 +78,6 @@ public class TrafficDAO {
             db.endTransaction();
         }
     }
-
-    public void update(TrafficInfo info) {
-        try {
-            db.beginTransaction();
-            ContentValues values = new ContentValues();
-            values.put("id", info.getId());
-            values.put("mobileReceive", info.getMobileReceive());
-            values.put("mobileSend", info.getMobileSend());
-            values.put("mRx", info.getmRx());
-            values.put("mSx", info.getmSx());
-            values.put("wifiReceive", info.getWifiReceive());
-            values.put("wifiSend", info.getWifiSend());
-            values.put("wRx", info.getwRx());
-            values.put("wSx", info.getwSx());
-            values.put("interval", info.getInterval());
-            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CANADA);
-            values.put("time", format.format(info.getTime()));
-            values.put("state", info.getState());
-            db.update(TABLE_NAME, values, "id=" + info.getId(), null);
-            db.setTransactionSuccessful();
-        } catch (Exception e) {
-            LogUtil.e("update", e.getMessage());
-        } finally {
-            db.endTransaction();
-        }
-    }
     public TrafficInfo query(String section, String[] sectionArgs, String groupBy, String having, String
             orderBy, String limit) {
         List<TrafficInfo> list = queryList(section,sectionArgs,groupBy,having,orderBy,limit);
@@ -139,7 +113,6 @@ public class TrafficDAO {
             LogUtil.e("delete", e.getMessage());
         } finally {
             db.endTransaction();
-
         }
         return infoList;
     }
@@ -151,27 +124,34 @@ public class TrafficDAO {
      * @return
      */
     public TrafficInfo queryTrafficInfo(String timeFormat) {
-        Cursor cursor = db.query(TABLE_NAME, null,"time like '" + timeFormat + "%'", null, null, null, null, null);
-        if(cursor.getCount()>0) {
-            cursor.moveToFirst();
-            TrafficInfo info_begin = new TrafficInfo();
-            info_begin.setMobileReceive(cursor.getLong(cursor.getColumnIndex("mobileReceive")));
-            info_begin.setMobileSend(cursor.getLong(cursor.getColumnIndex("mobileSend")));
-            info_begin.setWifiReceive(cursor.getLong(cursor.getColumnIndex("wifiReceive")));
-            info_begin.setWifiSend(cursor.getLong(cursor.getColumnIndex("wifiSend")));
-            cursor.moveToLast();
-            TrafficInfo info_end = new TrafficInfo();
-            info_end.setMobileReceive(cursor.getLong(cursor.getColumnIndex("mobileReceive")));
-            info_end.setMobileSend(cursor.getLong(cursor.getColumnIndex("mobileSend")));
-            info_end.setWifiReceive(cursor.getLong(cursor.getColumnIndex("wifiReceive")));
-            info_end.setWifiSend(cursor.getLong(cursor.getColumnIndex("wifiSend")));
+        Cursor cursor = db.query(TABLE_NAME,  new String[]{"sum(mRx)", "sum(mSx)", "sum(wRx)", "sum(wSx)"},"time like '" + timeFormat + "%'", null, null, null, null, null);
+        if (cursor.moveToNext()) {
             TrafficInfo info = new TrafficInfo();
-            info.setMobileSend(info_end.getMobileSend() - info_begin.getMobileSend());
-            info.setMobileReceive(info_end.getMobileReceive() - info_begin.getMobileReceive());
-            info.setWifiSend(info_end.getWifiSend() - info_begin.getWifiSend());
-            info.setWifiReceive(info_end.getWifiReceive() - info_begin.getWifiReceive());
+            info.setMobileReceive(cursor.getLong(0));
+            info.setMobileSend(cursor.getLong(1));
+            info.setWifiReceive(cursor.getLong(2));
+            info.setWifiSend(cursor.getLong(3));
             return info;
         }
+        cursor.close();
+        return null;
+    }
+    /**
+     * 提供按照时间格式来生成Info的方法
+     *
+     * @return
+     */
+    public TrafficInfo queryBetweenTime(String startTime, String endTime) {
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"sum(mRx)", "sum(mSx)", "sum(wRx)", "sum(wSx)"},"time >= ? and time <= ?", new String[]{startTime,endTime}, null, null, null, null);
+        if (cursor.moveToNext()) {
+            TrafficInfo info = new TrafficInfo();
+            info.setMobileReceive(cursor.getLong(0));
+            info.setMobileSend(cursor.getLong(1));
+            info.setWifiReceive(cursor.getLong(2));
+            info.setWifiSend(cursor.getLong(3));
+            return info;
+        }
+        cursor.close();
         return null;
     }
 }

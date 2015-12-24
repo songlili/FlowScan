@@ -20,4 +20,11 @@
     <string name="statistic_form">报表统计</string>
     <string name="today_traffic">今日流量</string>
     <string name="graphical_text">图形统计</string>
+    <string name="process_scan">进程监控</string>
+    <string name="process_now">当前进程:</string>
+    <string name="process_used">已用流量:</string>
+    <string name="process_all_traffic">总流量</string>
+    <string name="all">全部</string>
+    <string name="month_now">当月</string>
+
 </resources>

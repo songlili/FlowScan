@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by fing on 2015/12/11.
  */
 public class DBHelp extends SQLiteOpenHelper {
-    private static String CREATE_DB = "create table traffic_db(" +
+    private static String CREATE_TRAFFIC_DB = "create table traffic_db(" +
             "id integer primary key autoincrement," +
             "mobileReceive integer," +
             "mobileSend integer," +
@@ -22,6 +22,13 @@ public class DBHelp extends SQLiteOpenHelper {
             "time varchar(20)," +
             "state integer" +
             ");";
+    private static String CREATE_PROCESS_DB="create table process_db(" +
+            "id integer primary key autoincrement," +
+            "receive integer," +
+            "send integer," +
+            "time varchar(20)," +
+            "package_name varchar(20)" +
+            ");";
 
     public DBHelp(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -29,7 +36,8 @@ public class DBHelp extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_DB);
+        db.execSQL(CREATE_TRAFFIC_DB);
+        db.execSQL(CREATE_PROCESS_DB);
     }
 
     @Override

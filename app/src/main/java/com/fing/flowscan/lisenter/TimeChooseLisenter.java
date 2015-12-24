@@ -32,10 +32,10 @@ public class TimeChooseLisenter implements View.OnClickListener {
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog dialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog dialog = new DatePickerDialog(context ,new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                edit.setText(year+"年"+(monthOfYear+1)+"月"+dayOfMonth+"日");
+                edit.setText(year + "年" + (monthOfYear + 1) + "月" + dayOfMonth + "日");
             }
         }, year, month, day);
         dialog.setButton(DialogInterface.BUTTON_POSITIVE, "确定",
@@ -46,22 +46,5 @@ public class TimeChooseLisenter implements View.OnClickListener {
                     }
                 });
         dialog.show();
-//        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//        View view = LayoutInflater.from(context).inflate(R.layout.dialog_time, null);
-//        builder.setTitle("请选择日期")
-//                .setView(view)
-//                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//                    }
-//                })
-//                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//                    }
-//                });
-//        builder.show();
     }
 }
